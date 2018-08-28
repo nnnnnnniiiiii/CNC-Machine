@@ -4,74 +4,93 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import org.json.simple.parser.JSONParser;
-import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 
 public class writeLog {
 
-
-    //Main Method
-    public static void main (String[] args){
-        new writeLog().writeToLog("N25","G122");
-    }
-
-
     //Writing Method
-    private void writeToLog(String getNumber,String getCommand) {
+    public void writeToLog(String getNumber,String getCommand) {
+        //Create Variables to save the Values which should be written to the Log File.
         String number = getNumber;
         String command = getCommand;
 
+        //---Create all Objects, Arrays and the File Path---
         //Create JSON Parser & Object
         JSONParser parser = new JSONParser();
 
         //Create JSON Object which will retrieve the JSON with the Log File and parse it into the JSON Array logFile
         JSONObject jobj = null;
-        //Create JSON Object which will be appended to the Log File
-        JSONObject newJobj = new JSONObject();
+
         //Create JSON Array which stores the Log file
         JSONArray logFile = null;
 
-        //Log-File Location
-        File f = new File("/Users/johannes/IdeaProjects/writeLog/src/Log.json");
+        //Create JSON Object which will hold the new Log entry.
+        JSONObject newLogEntry = new JSONObject();
 
-        //IF File exists
-        if (f.exists()) {
+        //Log-File Location
+        File logFilePath = new File("/Users/johannes/IdeaProjects/CNC-Projekt/src/LogFile/Log.json");
+
+
+
+        //---Start with the modification of the JSON File---
+        //IF the Log File exists
+        if (logFilePath.exists()) {
             //Try opening the file into an Object and then parsing it into a JSON Object
             try {
-                Object obj = parser.parse(new FileReader(f));
-                jobj = (JSONObject) obj;
+
+                jobj = (JSONObject)parser.parse(new FileReader(logFilePath));
                 logFile = (JSONArray) jobj.get("Log");
 
+                //Append each value from the variables to the JSON Object newLogEntry.
+                newLogEntry.put("Nr", number);
+                newLogEntry.put("Command", command);
 
-                //Fill the JSON Object with information
-                //Add information to the new Object
-                newJobj.put("Nr", number);
-                newJobj.put("Command", command);
-                //Append the Object to the existing Array
-                logFile.add(newJobj);
+                //Append the newLogEntry JSON Object to the existing JSON Array logFile.
+                logFile.add(newLogEntry);
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         }
-        //If the file is not found create a new JSON Object
-        //else {
-        //   jobj = new JSONObject();
-        //}
+        //IF the Log File does not exists, create a new one.
+        else {
+            jobj = new JSONObject();
+            logFile = new JSONArray();
+
+            //Append each value from the variables to the JSON Object newLogEntry.
+            newLogEntry.put("Nr", number);
+            newLogEntry.put("Command", command);
+
+            //Append the newLogEntry JSON Object to the existing JSON Array logFile.
+            logFile.add(newLogEntry);
+
+            jobj.put("Log",logFile);
 
 
-        //Write the JSON Object to the file
+        }
+
+
+        //---Write the changes to the Log File---
+        //Write the JSON Object jobj with the new log entry to the file
         try {
-            FileWriter file = new FileWriter(f);
+            FileWriter file = new FileWriter(logFilePath);
             file.write(jobj.toJSONString());
             file.flush();
             file.close();
-            System.out.println("Successfully Copied JSON Object to File...");
-            System.out.println("\nJSON Object: " + logFile);
+            System.out.println("Successfully new log entry to file...");
+            System.out.println("\nNew Log Entry: " + newLogEntry);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+
     }
+
+
+
+
 }
