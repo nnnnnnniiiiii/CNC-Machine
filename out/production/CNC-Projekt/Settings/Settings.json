@@ -1,0 +1,11 @@
+{
+  "homePositionX": 0,
+  "homePositionY": 0,
+  "speedWithoutCooling": 2,
+  "speedWithCooling": 3,
+  "speedWithoutMill": 5,
+  "workingSurface": "grey",
+  "processedSurface": "black",
+  "drill": "red",
+  "homePosition": "green"
+}
