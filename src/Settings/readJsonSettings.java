@@ -1,13 +1,14 @@
+/*
+ * Author: Johannes Pirmann
+ * */
 package Settings;
 
 import java.io.FileReader;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
-
-/*
-* Author: Johannes Pirmann
-* */
+import java.io.InputStream;
+import java.net.URL;
+import java.io.File;
 
 public class readJsonSettings {
 
@@ -21,21 +22,20 @@ public class readJsonSettings {
     public String drill;
     public String homePosition;
 
-
-    public static void main(String[] args){
-        new readJsonSettings().readJson();
-
-    }
-
     public void readJson(){
         try {
 
+            //Get the File Path for the Settings.json.
+            URL url = getClass().getResource("Settings.json");
+            File filePathToSettings = new File(url.getPath());
+
             // parsing file "JSONExample.json"
-            Object obj = new JSONParser().parse(new FileReader("/Users/johannes/IdeaProjects/CNC-Projekt/src/Settings/Settings.json"));
+            Object obj = new JSONParser().parse(new FileReader(String.valueOf(filePathToSettings)));
 
             // typecasting obj to JSONObject
             JSONObject jo = (JSONObject) obj;
 
+            //Save the Values from the JSON to the Variables.
             homePositionX = (long) jo.get("homePositionX");
             homePositionY = (long) jo.get("homePositionY");
             speedWithoutCooling = (long) jo.get("speedWithoutCooling");
@@ -47,7 +47,7 @@ public class readJsonSettings {
             drill = (String) jo.get("drill");
             homePosition = (String) jo.get("homePosition");
 
-            System.out.println(homePositionX+" " +workingSurface);
+            System.out.println("Home Position X: "+homePositionX+"; Color of the working Surface:" +workingSurface+";");
 
 
         } catch (Exception e) {
