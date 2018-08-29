@@ -3,14 +3,20 @@ package Logging;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.io.*;
 
+import Settings.readJsonSettings;
+
 public class LogClass {
+
     String number;
     String command;
-
+    int numberOfLogEntry;
     File jsonLogFile;
+
+    public LogClass(int numberOfLogEntry){
+        this.numberOfLogEntry = numberOfLogEntry;
+    }
 
     //Create all Objects, Arrays and parser
     JSONParser newJSONParser = new JSONParser();
@@ -18,13 +24,16 @@ public class LogClass {
     JSONObject allLogEntries = new JSONObject();
     JSONObject newLogEntry = new JSONObject();
 
-    public void logMethod(String number, String command) throws IOException, ParseException {
-        this.number = number;
+    public void logMethod(String command) throws IOException, ParseException {
+        System.out.println("Test:" + numberOfLogEntry);
+        this.number = "N";
+        this.number += String.valueOf(numberOfLogEntry);
         this.command = command;
 
         createJSON();
         createNewLogEntry();
         writeToFile();
+        numberOfLogEntry++;
     }
 
     private void createJSON() throws IOException{
@@ -63,6 +72,7 @@ public class LogClass {
             changedJSON.close();
             System.out.println("Successfully new log entry to file...");
             System.out.println("\nNew Log Entry: " + newLogEntry);
+            System.out.println("New nr of log entries:" + numberOfLogEntry);
         } catch (IOException e) {
             e.printStackTrace();
         }

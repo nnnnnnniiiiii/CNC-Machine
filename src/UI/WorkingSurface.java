@@ -10,7 +10,7 @@ public class WorkingSurface extends JPanel {
         size.width = 730;
         setPreferredSize(size);
 
-        setBorder(BorderFactory.createTitledBorder("Workspace"));
+        setBorder(BorderFactory.createTitledBorder("Working Surface"));
 
     }
     @Override

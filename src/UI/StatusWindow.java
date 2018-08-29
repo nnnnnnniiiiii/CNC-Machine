@@ -1,7 +1,6 @@
 package UI;
 
 import javax.swing.*;
-import javax.swing.*;
 import java.awt.*;
 
 public class StatusWindow extends JPanel {
@@ -14,14 +13,24 @@ public class StatusWindow extends JPanel {
         setBorder(BorderFactory.createTitledBorder("Status"));
 
         // Labels//
-        JLabel currentpositionLabel = new JLabel("Current Position (X/Y):");
-        currentpositionLabel.setFont(new Font("Serif", Font.PLAIN, 12));
-        JLabel currentposition = new JLabel("0/0");
-        currentposition.setFont(new Font("Serif", Font.BOLD, 12));
+        JLabel xCurrentPositionLabel = new JLabel("Current X-Position:");
+        xCurrentPositionLabel.setFont(new Font("Serif", Font.PLAIN, 12));
+        JLabel xCurrentPosition = new JLabel("0");
+        xCurrentPosition.setFont(new Font("Serif", Font.BOLD, 12));
+
+        JLabel yCurrentPositionLabel = new JLabel("Current Y-Position:");
+        yCurrentPositionLabel.setFont(new Font("Serif", Font.PLAIN, 12));
+        JLabel yCurrentPosition = new JLabel("0");
+        yCurrentPosition.setFont(new Font("Serif", Font.BOLD, 12));
 
         JLabel drillstatusLabel = new JLabel("Drill Status:");
         drillstatusLabel.setFont(new Font("Serif", Font.PLAIN, 12));
         JLabel drillstatus = new JLabel("OFF");
+        drillstatus.setFont(new Font("Serif", Font.BOLD, 12));
+
+        JLabel drillDirectionLabel = new JLabel("Drill Direction:");
+        drillstatusLabel.setFont(new Font("Serif", Font.PLAIN, 12));
+        JLabel drillDirection = new JLabel("None");
         drillstatus.setFont(new Font("Serif", Font.BOLD, 12));
 
         JLabel coolingLabel = new JLabel("Cooling Status:");
@@ -44,18 +53,26 @@ public class StatusWindow extends JPanel {
 
         gc.gridx = 0;
         gc.gridy = 0;
-        add(currentpositionLabel, gc);
+        add(xCurrentPositionLabel, gc);
 
         gc.gridx = 0;
         gc.gridy = 1;
-        add(drillstatusLabel, gc);
+        add(yCurrentPositionLabel, gc);
 
         gc.gridx = 0;
         gc.gridy = 2;
-        add(coolingLabel, gc);
+        add(drillstatusLabel, gc);
 
         gc.gridx = 0;
         gc.gridy = 3;
+        add(drillDirectionLabel, gc);
+
+        gc.gridx = 0;
+        gc.gridy = 4;
+        add(coolingLabel, gc);
+
+        gc.gridx = 0;
+        gc.gridy = 5;
         add(speedLabel, gc);
 
         //Second Column
@@ -65,18 +82,26 @@ public class StatusWindow extends JPanel {
 
         gc.gridx = 1;
         gc.gridy = 0;
-        add(currentposition, gc);
+        add(xCurrentPosition, gc);
 
         gc.gridx = 1;
         gc.gridy = 1;
-        add(drillstatus, gc);
+        add(yCurrentPosition, gc);
 
         gc.gridx = 1;
         gc.gridy = 2;
-        add(cooling, gc);
+        add(drillstatus, gc);
 
         gc.gridx = 1;
         gc.gridy = 3;
+        add(drillDirection, gc);
+
+        gc.gridx = 1;
+        gc.gridy = 4;
+        add(cooling, gc);
+
+        gc.gridx = 1;
+        gc.gridy = 5;
         add(speed, gc);
     }
 }

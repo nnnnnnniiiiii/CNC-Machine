@@ -21,6 +21,8 @@ public class readJsonSettings {
     public String processedSurface;
     public String drill;
     public String homePosition;
+    public long numberOfLogEntry;
+    public int intNumberLogEntries;
 
     public void readJson(){
         try {
@@ -47,6 +49,8 @@ public class readJsonSettings {
             drill = (String) jo.get("drill");
             homePosition = (String) jo.get("homePosition");
 
+            numberOfLogEntry = (long) jo.get("numberOfLogEntry");
+            intNumberLogEntries= (int) numberOfLogEntry;
             System.out.println("Home Position X: "+homePositionX+"; Color of the working Surface:" +workingSurface+";");
 
 
