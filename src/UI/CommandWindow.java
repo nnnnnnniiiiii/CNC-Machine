@@ -199,8 +199,12 @@ public class CommandWindow extends JPanel {
             public void actionPerformed(ActionEvent e) {
 
                 String command = (String) commandlist.getSelectedItem();
+                String xValue = x.getText();
+                String yValue = y.getText();
+                String iValue = i.getText();
+                String jValue = j.getText();
                 try {
-                    editLog.logMethod(command);
+                    editLog.logMethod(command,xValue,yValue,iValue,jValue);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 } catch (ParseException e1) {

@@ -11,6 +11,10 @@ public class LogClass {
 
     String number;
     String command;
+    String xValue;
+    String yValue;
+    String iValue;
+    String jValue;
     int numberOfLogEntry;
     File jsonLogFile;
 
@@ -24,11 +28,14 @@ public class LogClass {
     JSONObject allLogEntries = new JSONObject();
     JSONObject newLogEntry = new JSONObject();
 
-    public void logMethod(String command) throws IOException, ParseException {
-        System.out.println("Test:" + numberOfLogEntry);
+    public void logMethod(String command, String xValue, String yValue, String iValue, String jValue) throws IOException, ParseException {
         this.number = "N";
         this.number += String.valueOf(numberOfLogEntry);
         this.command = command;
+        this.xValue = xValue;
+        this.yValue = yValue;
+        this.iValue = iValue;
+        this.jValue = jValue;
 
         createJSON();
         createNewLogEntry();
@@ -59,6 +66,11 @@ public class LogClass {
         allEntries = newJSONParser.parse(new FileReader(jsonLogFile));
         allLogEntries = (JSONObject) allEntries;
         newLogEntry.put("Command:", command);
+        newLogEntry.put("xValue:",xValue);
+        newLogEntry.put("yValue:",yValue);
+        newLogEntry.put("iValue:",iValue);
+        newLogEntry.put("jValue:",jValue);
+
 
         allLogEntries.put(number,newLogEntry);
     }
