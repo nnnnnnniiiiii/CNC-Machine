@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bb78ed0-feec-4d04-91d0-14129ca7f800" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Executer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Executer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logging/LogClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logging/LogClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Settings/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Settings/readJsonSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings/readJsonSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CNC-Projekt/Logging/Log.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/CommandWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/CommandWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/StatusWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/StatusWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/WorkingSurface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/WorkingSurface.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +27,6 @@
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Logging/Log.json">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="Executer.java" pinned="false" current-in-tab="false">
@@ -75,8 +65,8 @@
       <file leaf-file-name="CommandWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/CommandWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+            <state relative-caret-position="340">
+              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -346,12 +336,12 @@
       <workItem from="1531822432325" duration="7428000" />
       <workItem from="1535355210329" duration="137000" />
       <workItem from="1535433520599" duration="19526000" />
-      <workItem from="1535572542450" duration="11326000" />
+      <workItem from="1535572542450" duration="11839000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38417000" />
+    <option name="totallyTimeSpent" value="38930000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -375,12 +365,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32954547" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32954547" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32954547" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -626,9 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Logging/Log.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Logging/LogClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
@@ -651,10 +638,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Logging/Log.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="121" lean-forward="true" selection-start-column="121" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/CommandWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        <state relative-caret-position="340">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

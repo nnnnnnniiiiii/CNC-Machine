@@ -36,16 +36,24 @@ public class CommandWindow extends JPanel {
         //JLabel uploadfileLabel = new JLabel("Upload XML File:");
         //uploadfileLabel.setFont(new Font("Serif", Font.PLAIN, 14));
 
-        JLabel xcoordinateLabel = new JLabel("Enter X Coordinate:");
-        xcoordinateLabel.setFont(new Font("Serif", Font.PLAIN, 14));
+        JLabel xCoordinateLabel = new JLabel("Enter X Coordinate:");
+        xCoordinateLabel.setFont(new Font("Serif", Font.PLAIN, 14));
 
-        JLabel ycoordinateLabel = new JLabel("Enter Y Coordinate:");
-        ycoordinateLabel.setFont(new Font("Serif", Font.PLAIN, 14));
+        JLabel yCoordinateLabel = new JLabel("Enter Y Coordinate:");
+        yCoordinateLabel.setFont(new Font("Serif", Font.PLAIN, 14));
+
+        JLabel iCoordinateLabel = new JLabel("Enter I Coordinate:");
+        iCoordinateLabel.setFont(new Font("Serif", Font.PLAIN, 14));
+
+        JLabel jCoordinateLabel = new JLabel("Enter J Coordinate:");
+        jCoordinateLabel.setFont(new Font("Serif", Font.PLAIN, 14));
 
         //Textfields
 
         JTextField x = new JTextField(2);
         JTextField y = new JTextField(2);
+        JTextField i = new JTextField(2);
+        JTextField j = new JTextField(2);
 
         //Textarea
         JTextArea log = new JTextArea();
@@ -107,11 +115,19 @@ public class CommandWindow extends JPanel {
 
         gc.gridx = 2;
         gc.gridy = 0;
-        add(xcoordinateLabel, gc);
+        add(xCoordinateLabel, gc);
 
         gc.gridx = 2;
         gc.gridy = 1;
-        add(ycoordinateLabel, gc);
+        add(yCoordinateLabel, gc);
+
+        gc.gridx = 2;
+        gc.gridy = 2;
+        add(iCoordinateLabel, gc);
+
+        gc.gridx = 2;
+        gc.gridy = 3;
+        add(jCoordinateLabel, gc);
 
         //Fourth column
         gc.anchor = GridBagConstraints.LINE_START;
@@ -125,6 +141,14 @@ public class CommandWindow extends JPanel {
         gc.gridx = 3;
         gc.gridy = 1;
         add(y, gc);
+
+        gc.gridx = 3;
+        gc.gridy = 2;
+        add(i, gc);
+
+        gc.gridx = 3;
+        gc.gridy = 3;
+        add(j, gc);
 
         //Fifth column
         gc.anchor = GridBagConstraints.LINE_START;
