@@ -89,5 +89,8 @@ public class LogClass {
             e.printStackTrace();
         }
     }
+    public String returnCurrentLogEntry(){
+        return number;
+    }
 
 }

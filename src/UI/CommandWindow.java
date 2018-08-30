@@ -211,6 +211,9 @@ public class CommandWindow extends JPanel {
                     e1.printStackTrace();
                 }
 
+                log.append("Nr: "+ editLog.returnCurrentLogEntry() + " Command: "+ command + " x-Value: "+xValue + " y-Value: "+yValue + " i-Value: "+iValue + " j-Value: "+jValue+"\n");
+
+
             }
         });
         // Button action stop
