@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bb78ed0-feec-4d04-91d0-14129ca7f800" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Logging/LogClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logging/LogClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/CommandWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/CommandWindow.java" afterDir="false" />
-    </list>
+    <list default="true" id="2bb78ed0-feec-4d04-91d0-14129ca7f800" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,8 +52,8 @@
       <file leaf-file-name="CommandWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/CommandWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="213" column="65" selection-start-line="213" selection-start-column="65" selection-end-line="213" selection-end-column="65" />
+            <state relative-caret-position="-78">
+              <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6207#6208#0" expanded="true" />
@@ -198,7 +195,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -340,12 +337,12 @@
       <workItem from="1531822432325" duration="7428000" />
       <workItem from="1535355210329" duration="137000" />
       <workItem from="1535433520599" duration="19526000" />
-      <workItem from="1535572542450" duration="12826000" />
+      <workItem from="1535572542450" duration="13262000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39917000" />
+    <option name="totallyTimeSpent" value="40353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -369,12 +366,12 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32954547" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32954547" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32954547" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -620,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Logging/Log.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="83" lean-forward="true" selection-start-column="83" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Logging/LogClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
@@ -651,10 +641,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Logging/Log.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="83" lean-forward="true" selection-start-column="83" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/CommandWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="213" column="65" selection-start-line="213" selection-start-column="65" selection-end-line="213" selection-end-column="65" />
+        <state relative-caret-position="-78">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#6207#6208#0" expanded="true" />
@@ -720,7 +717,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
