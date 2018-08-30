@@ -1,10 +1,26 @@
 package UI;
 
+import Methods.StatusValues;
+import Settings.ReadJsonSettings;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class StatusWindow extends JPanel {
-    public StatusWindow(){
+    String drillStatus = "OFF";
+    private final StatusValues statusValues;
+    private final ReadJsonSettings jsonSettings;
+
+    JLabel xCurrentPosition;
+    JLabel yCurrentPosition;
+    JLabel drillstatus;
+    JLabel drillDirection;
+    JLabel cooling;
+    JLabel speed;
+
+    public StatusWindow(StatusValues newStatValues, ReadJsonSettings newJsonSettings){
+        this.statusValues = newStatValues;
+        this.jsonSettings = newJsonSettings;
         // general Settings
         Dimension size= getPreferredSize();
         size.width = 200;
@@ -15,32 +31,32 @@ public class StatusWindow extends JPanel {
         // Labels//
         JLabel xCurrentPositionLabel = new JLabel("Current X-Position:");
         xCurrentPositionLabel.setFont(new Font("Serif", Font.PLAIN, 12));
-        JLabel xCurrentPosition = new JLabel("0");
+        xCurrentPosition = new JLabel("0");
         xCurrentPosition.setFont(new Font("Serif", Font.BOLD, 12));
 
         JLabel yCurrentPositionLabel = new JLabel("Current Y-Position:");
         yCurrentPositionLabel.setFont(new Font("Serif", Font.PLAIN, 12));
-        JLabel yCurrentPosition = new JLabel("0");
+        yCurrentPosition = new JLabel("0");
         yCurrentPosition.setFont(new Font("Serif", Font.BOLD, 12));
 
         JLabel drillstatusLabel = new JLabel("Drill Status:");
         drillstatusLabel.setFont(new Font("Serif", Font.PLAIN, 12));
-        JLabel drillstatus = new JLabel("OFF");
+        drillstatus = new JLabel("OFF");
         drillstatus.setFont(new Font("Serif", Font.BOLD, 12));
 
         JLabel drillDirectionLabel = new JLabel("Drill Direction:");
         drillstatusLabel.setFont(new Font("Serif", Font.PLAIN, 12));
-        JLabel drillDirection = new JLabel("None");
+        drillDirection = new JLabel("None");
         drillstatus.setFont(new Font("Serif", Font.BOLD, 12));
 
         JLabel coolingLabel = new JLabel("Cooling Status:");
         coolingLabel.setFont(new Font("Serif", Font.PLAIN, 12));
-        JLabel cooling =new JLabel("OFF");
+        cooling =new JLabel("OFF");
         cooling.setFont(new Font("Serif", Font.BOLD, 12));
 
         JLabel speedLabel = new JLabel("Current Speed (m/s):");
         speedLabel.setFont(new Font("Serif", Font.PLAIN, 12));
-        JLabel speed = new JLabel("0");
+        speed = new JLabel(Long.toString(jsonSettings.speedWithoutMill));
         speed.setFont(new Font("Serif", Font.BOLD, 12));
         // Grid settings
         setLayout(new GridBagLayout());
@@ -103,5 +119,25 @@ public class StatusWindow extends JPanel {
         gc.gridx = 1;
         gc.gridy = 5;
         add(speed, gc);
+    }
+
+    public void setxCurrentPosition(String newStatus){
+        xCurrentPosition.setText(newStatus);
+    }
+    public void setyCurrentPosition(String newStatus){
+        yCurrentPosition.setText(newStatus);
+    }
+
+    public void setDrillStatus(String newStatus){
+        drillstatus.setText(newStatus);
+    }
+    public void setDrillDirection(String newStatus){
+        drillDirection.setText(newStatus);
+    }
+    public void setCooling(String newStatus){
+        cooling.setText(newStatus);
+    }
+    public void setSpeed(String newStatus){
+        speed.setText(newStatus);
     }
 }

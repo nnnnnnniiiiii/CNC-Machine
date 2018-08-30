@@ -6,11 +6,10 @@ package Settings;
 import java.io.FileReader;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
-import java.io.InputStream;
 import java.net.URL;
 import java.io.File;
 
-public class readJsonSettings {
+public class ReadJsonSettings {
 
     public long homePositionX;
     public long homePositionY;
@@ -43,7 +42,6 @@ public class readJsonSettings {
             speedWithoutCooling = (long) jo.get("speedWithoutCooling");
             speedWithCooling = (long) jo.get("speedWithCooling");
             speedWithoutMill = (long) jo.get("speedWithoutMill");
-
             workingSurface = (String) jo.get("workingSurface");
             processedSurface = (String) jo.get("processedSurface");
             drill = (String) jo.get("drill");
@@ -51,7 +49,6 @@ public class readJsonSettings {
 
             numberOfLogEntry = (long) jo.get("numberOfLogEntry");
             intNumberLogEntries= (int) numberOfLogEntry;
-            System.out.println("Home Position X: "+homePositionX+"; Color of the working Surface:" +workingSurface+";");
 
 
         } catch (Exception e) {

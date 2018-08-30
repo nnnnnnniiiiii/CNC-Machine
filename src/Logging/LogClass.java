@@ -5,8 +5,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.*;
 
-import Settings.readJsonSettings;
-
 public class LogClass {
 
     String number;
@@ -23,12 +21,15 @@ public class LogClass {
     }
 
     //Create all Objects, Arrays and parser
-    JSONParser newJSONParser = new JSONParser();
-    Object allEntries = new Object();
-    JSONObject allLogEntries = new JSONObject();
-    JSONObject newLogEntry = new JSONObject();
+    private JSONParser newJSONParser = new JSONParser();
+    private Object allEntries = new Object();
+    private JSONObject allLogEntries = new JSONObject();
+    private JSONObject newLogEntry = new JSONObject();
 
     public void logMethod(String command, String xValue, String yValue, String iValue, String jValue) throws IOException, ParseException {
+        /*
+        * We are generally logging everything, so that we have date for analytic purposes. Like if we should provide the user with some sort of manual.
+        * */
         this.number = "N";
         this.number += String.valueOf(numberOfLogEntry);
         this.command = command;
@@ -57,8 +58,6 @@ public class LogClass {
             changedJSON.write(newJSONObject.toJSONString());
             changedJSON.flush();
             changedJSON.close();
-            //Print a success message.
-            System.out.println("A new JSON File was created!");
         }
     }
 
@@ -82,9 +81,6 @@ public class LogClass {
             changedJSON.write(allLogEntries.toJSONString());
             changedJSON.flush();
             changedJSON.close();
-            System.out.println("Successfully new log entry to file...");
-            System.out.println("\nNew Log Entry: " + newLogEntry);
-            System.out.println("New nr of log entries:" + numberOfLogEntry);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,10 +1,12 @@
 package UI;
 import Logging.LogClass;
-import Settings.readJsonSettings;
+import Methods.G01;
+import Methods.G02;
+import Methods.MMethods;
+import Settings.ReadJsonSettings;
 import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,13 +14,22 @@ import java.io.IOException;
 
 
 public class CommandWindow extends JPanel {
+
+    private final MainFrame frame;
+    private final MMethods mMethods;
     String[] commands = {"G00", "G01","G02","G03","G28","M00","M02","M03","M04","M05","M08","M09","M13","M14"};
 
-    public CommandWindow() {
+    public CommandWindow(MainFrame frame, MMethods mMethods) {
+        this.frame = frame;
+        this.mMethods = mMethods;
         //Create read Settings Object
-        readJsonSettings currentSettings = new readJsonSettings();
+        ReadJsonSettings currentSettings = new ReadJsonSettings();
         currentSettings.readJson();
         LogClass editLog = new LogClass(currentSettings.intNumberLogEntries);
+
+        //Create Method Objects
+        G01 runG01 = new G01();
+        G02 runG02 = new G02();
 
 
 
@@ -58,9 +69,13 @@ public class CommandWindow extends JPanel {
         //Textarea
         JTextArea log = new JTextArea();
         log.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+        log.setEditable(false); // set textArea non-editable
         log.setBackground(Color.BLACK);
         log.setCaretColor(Color.green);
         log.setForeground(Color.green);
+        JScrollPane scroll = new JScrollPane(log);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
 
         //Buttons
         JButton runCommand = new JButton("Add to Que");
@@ -178,7 +193,7 @@ public class CommandWindow extends JPanel {
 
         gc.gridx=6;
         gc.gridy=0;
-        add(log,gc);
+        add(scroll,gc);
 
         //File chooser
         //JFileChooser fc = new JFileChooser();
@@ -210,6 +225,56 @@ public class CommandWindow extends JPanel {
                 } catch (ParseException e1) {
                     e1.printStackTrace();
                 }
+
+                switch (command){
+                    case "G01":
+                        System.out.println("G01 was run");
+                        break;
+                    case "G02":
+                        System.out.println("G02 was run");
+                        break;
+                    case "M00":
+                        mMethods.M00();
+                        System.out.println("M00 was run");
+                        break;
+                    case "M02":
+                        mMethods.m02();
+                        System.out.println("M02 was run");
+                        break;
+                    case "M03":
+                        mMethods.M03();
+                        System.out.println("M03 was run");
+                        break;
+                    case "M04":
+                        mMethods.M04();
+                        System.out.println("M04 was run");
+                        break;
+                    case "M05":
+                        mMethods.M05();
+                        System.out.println("M05 was run");
+                        break;
+                    case "M08":
+                        mMethods.M08();
+                        System.out.println("M08 was run");
+                        break;
+                    case "M09":
+                        mMethods.M09();
+                        System.out.println("M09 was run");
+                        break;
+                    case "M13":
+                        mMethods.M13();
+                        System.out.println("M13 was run");
+                        break;
+                    case "M14":
+                        mMethods.M14();
+                        System.out.println("M14 was run");
+
+                        frame.reloadStatus();
+                        break;
+                    default:
+                        System.out.println("No Command choosen");
+                }
+
 
                 log.append("Nr: "+ editLog.returnCurrentLogEntry() + " Command: "+ command + " x-Value: "+xValue + " y-Value: "+yValue + " i-Value: "+iValue + " j-Value: "+jValue+"\n");
 

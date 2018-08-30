@@ -1,7 +1,24 @@
 package Methods;
 
+
+import UI.MainFrame;
+import UI.StatusWindow;
+import Settings.ReadJsonSettings;
+
+
 public class MMethods {
 
+    private final StatusValues status;
+    private final StatusWindow statusWindow;
+    private final MainFrame frame;
+    private final ReadJsonSettings jsonSettings;
+
+    public MMethods(StatusValues newStatus, StatusWindow statusWindow, MainFrame frame,ReadJsonSettings newJsonSettings){
+        this.status = newStatus;
+        this.statusWindow = statusWindow;
+        this.frame = frame;
+        this.jsonSettings = newJsonSettings;
+    }
 
 /*          • M00: Programmhalt (Spindel, Kühlmittel, Vorschub aus)
             • M02: Programm Ende
@@ -15,85 +32,102 @@ public class MMethods {
 */
 
 
-    public Boolean cooling;
-    //cooling = Kühlmitter
-    //true  = Kuhlmittel an
-    //false = Kühlmittel aus
-
-    public Boolean drill;
-    //drill = Spindel
-    //true  = Spindel dreht sich
-    //false = Spindel dreht sich nicht
-
-    public Boolean drillDirection;
-    //drillDirection = drehRichtungSpindel
-    //true  = Rechtslauf
-    //false = Linkslauf
 
     //M00: Programmhalt (Spindel, Kühlmittel, Vorschub aus)
-    void M00(){
+    public void M00(){
 
-        drill = false;
-        cooling = false;
+        status.drill = false;
+        statusWindow.setDrillStatus("OFF");
+        status.cooling = false;
+        statusWindow.setCooling("OFF");
+        statusWindow.setDrillDirection("NONE");
+        statusWindow.setSpeed(Long.toString(jsonSettings.speedWithoutMill));
 
         //Vorschub aus?
-
+        frame.reloadStatus();
     }
 
     //M02: Programm Ende
-    void m02(){
+    public void m02(){
 
         //Vorschub aus?
-
+        frame.reloadStatus();
     }
 
     //M03: Spindel Ein: Im Uhrzeigersinn (Rechtslauf)
-    void M03(){
+    public void M03(){
 
-        drill = true;
-        drillDirection=true;
+        status.drill = true; //ON
+        statusWindow.setDrillStatus("ON");
+        status.drillDirection=true;
+        statusWindow.setDrillDirection("Right");
+        statusWindow.setSpeed(Long.toString(jsonSettings.speedWithoutCooling));
+        frame.reloadStatus();
     }
 
     //M04: Spindel Ein: Gegen den Uhrzeigersinn (Linkslauf)
-    void M04(){
+    public void M04(){
 
-        drill = true;
-        drillDirection=false;
+        status.drill = true;
+        statusWindow.setDrillStatus("ON");
+        status.drillDirection=false;
+        statusWindow.setDrillDirection("Left");
+        statusWindow.setSpeed(Long.toString(jsonSettings.speedWithoutCooling));
+        frame.reloadStatus();
     }
 
     //M05: Spindel Stopp
-    void M05(){
+    public void M05(){
 
-        drill = false;
+        status.drill = false;
+        statusWindow.setDrillStatus("OFF");
+        statusWindow.setDrillDirection("NONE");
+        statusWindow.setSpeed(Long.toString(jsonSettings.speedWithoutMill));
+        frame.reloadStatus();
     }
 
     //M08: Kühlmittel Ein*
-    void M08(){
+    public void M08(){
 
-        cooling = true;
+        status.cooling = true;
+        statusWindow.setCooling("ON");
+        statusWindow.setSpeed(Long.toString(jsonSettings.speedWithCooling));
+        frame.reloadStatus();
     }
 
     //M09: Kühlmittel Aus*
-    void M09() {
+    public void M09() {
 
-        cooling = false;
+        status.cooling = false;
+        statusWindow.setCooling("OFF");
+        statusWindow.setSpeed(Long.toString(jsonSettings.speedWithoutCooling));
+        frame.reloadStatus();
     }
 
     //M13: Spindel Ein, Rechtslauf und Kühlmittel Ein*
-    void M013(){
+    public void M13(){
 
-        drill = true;
-        drillDirection=true;
-        cooling = true;
-
+        status.drill = true;
+        statusWindow.setDrillStatus("ON");
+        status.drillDirection=true;
+        statusWindow.setDrillDirection("Right");
+        status.cooling = true;
+        statusWindow.setCooling("ON");
+        statusWindow.setSpeed(Long.toString(jsonSettings.speedWithCooling));
+        frame.reloadStatus();
     }
 
     //M14: Spindel Ein, Linkslauf und Kühlmittel Ein*
-    void M14(){
-
-        drill=true;
-        drillDirection=false;
-        cooling=true;
+    public void M14(){
+        status.drill= true;
+        statusWindow.setDrillStatus("ON");
+        status.drillDirection=false;
+        statusWindow.setDrillDirection("Left");
+        status.cooling=true;
+        statusWindow.setCooling("ON");
+        statusWindow.setSpeed(Long.toString(jsonSettings.speedWithCooling));
+        frame.reloadStatus();
     }
+
 
 }
